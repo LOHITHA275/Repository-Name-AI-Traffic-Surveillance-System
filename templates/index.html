@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Traffic Surveillance Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🚦 AI Traffic Surveillance Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total_plates }}</h2>
+            <p>Total Plates Detected</p>
+        </div>
+
+    </div>
+
+    <h2>Detected Plates</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Plate Number</th>
+            <th>Image Name</th>
+            <th>Detection Time</th>
+        </tr>
+
+        {% for plate in plates %}
+        <tr>
+            <td>{{ plate[0] }}</td>
+            <td>{{ plate[1] }}</td>
+            <td>{{ plate[2] }}</td>
+            <td>{{ plate[3] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
